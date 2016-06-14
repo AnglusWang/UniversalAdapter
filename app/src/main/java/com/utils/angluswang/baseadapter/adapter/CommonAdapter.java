@@ -6,7 +6,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 
+import com.utils.angluswang.baseadapter.R;
 import com.utils.angluswang.baseadapter.entity.Bean;
+import com.utils.angluswang.baseadapter.utils.ViewHolder;
 
 import java.util.List;
 
@@ -33,8 +35,8 @@ public abstract class CommonAdapter<T> extends BaseAdapter {
     }
 
     @Override
-    public Object getItem(int position) {
-        return mDatas.get(position);
+    public T getItem(int position) {
+        return (T) mDatas.get(position);
     }
 
     @Override
@@ -43,5 +45,14 @@ public abstract class CommonAdapter<T> extends BaseAdapter {
     }
 
     @Override
-    public abstract View getView(int position, View convertView, ViewGroup parent);
+    public View getView(int position, View convertView, ViewGroup parent){
+        ViewHolder holder = ViewHolder.get(mContext,
+                convertView, parent, R.layout.item_listview, position);
+
+        convert(holder, getItem(position));
+
+        return holder.getConvertView();
+    }
+
+    public abstract void convert(ViewHolder holder, T t);
 }
