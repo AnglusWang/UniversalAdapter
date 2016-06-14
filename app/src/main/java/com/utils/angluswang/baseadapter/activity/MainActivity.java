@@ -5,9 +5,11 @@ import android.os.Bundle;
 import android.widget.ListView;
 
 import com.utils.angluswang.baseadapter.R;
+import com.utils.angluswang.baseadapter.adapter.CommonAdapter;
 import com.utils.angluswang.baseadapter.adapter.MyAdapter;
 import com.utils.angluswang.baseadapter.adapter.MyAdapterWithCommonViewHolder;
 import com.utils.angluswang.baseadapter.entity.Bean;
+import com.utils.angluswang.baseadapter.utils.ViewHolder;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,6 +20,7 @@ public class MainActivity extends Activity {
     private List<Bean> mDatas;
     private MyAdapter myAdapter;
     private MyAdapterWithCommonViewHolder mAdapterWithCommonViewHolder;
+    private CommonAdapter<Bean> commonAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +30,7 @@ public class MainActivity extends Activity {
         initDatas();
         initView();
 
-        mListView.setAdapter(mAdapterWithCommonViewHolder);
+        mListView.setAdapter(commonAdapter);
     }
 
     private void initView() {
@@ -58,6 +61,15 @@ public class MainActivity extends Activity {
         mDatas.add(bean);
 
 //        myAdapter = new MyAdapter(this, mDatas);
-        mAdapterWithCommonViewHolder = new MyAdapterWithCommonViewHolder(this, mDatas);
+//        mAdapterWithCommonViewHolder = new MyAdapterWithCommonViewHolder(this, mDatas);
+        commonAdapter = new CommonAdapter<Bean>(MainActivity.this, mDatas) {
+            @Override
+            public void convert(ViewHolder holder, Bean bean) {
+                holder.setText(R.id.tv_title, bean.getTitle())
+                        .setText(R.id.tv_desc, bean.getDesc())
+                        .setText(R.id.tv_time, bean.getTime())
+                        .setText(R.id.tv_phone, bean.getPhone());
+            }
+        };
     }
 }

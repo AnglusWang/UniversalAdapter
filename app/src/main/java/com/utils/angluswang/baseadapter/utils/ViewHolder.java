@@ -1,10 +1,13 @@
 package com.utils.angluswang.baseadapter.utils;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.net.Uri;
 import android.util.SparseArray;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 /**
@@ -66,6 +69,24 @@ public class ViewHolder {
     public ViewHolder setText(int viewId, String string) {
         TextView tv = getView(viewId);
         tv.setText(string);
+        return this;
+    }
+
+    public ViewHolder setImageResource(int viewId, int resId) {
+        ImageView img = getView(viewId);
+        img.setImageResource(resId);
+        return this;
+    }
+
+    public ViewHolder setImageBitmap(int viewId, Bitmap bm) {
+        ImageView img = getView(viewId);
+        img.setImageBitmap(bm);
+        return this;
+    }
+
+    public ViewHolder setImageURI(int viewId, Uri uri) {
+        ImageView img = getView(viewId);
+        // ImageLoader.getInstance.loadImg(img, uri);
         return this;
     }
 }
