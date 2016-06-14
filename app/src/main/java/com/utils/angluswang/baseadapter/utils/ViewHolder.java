@@ -31,8 +31,19 @@ public class ViewHolder {
             return new ViewHolder(context, parent, layouId, position);
         } else {
             ViewHolder holder = (ViewHolder) convertView.getTag();
+            holder.mPosition = position;
             return holder;
         }
+    }
+
+    public < T extends View> T getView(int viewId) {
+        View view = mViews.get(viewId);
+
+        if (view == null) {
+            view = mConvertView.findViewById(viewId);
+            mViews.put(viewId, view);
+        }
+        return (T) view;
     }
 
     public View getConvertView() {
