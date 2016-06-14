@@ -1,4 +1,4 @@
-package com.utils.angluswang.baseadapter;
+package com.utils.angluswang.baseadapter.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -6,6 +6,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
+
+import com.utils.angluswang.baseadapter.R;
+import com.utils.angluswang.baseadapter.entity.Bean;
 
 import java.util.List;
 

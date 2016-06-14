@@ -1,4 +1,4 @@
-package com.utils.angluswang.baseadapter;
+package com.utils.angluswang.baseadapter.entity;
 
 /**
  * Created by Jeson on 2016/6/14.

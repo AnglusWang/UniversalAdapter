@@ -1,8 +1,12 @@
-package com.utils.angluswang.baseadapter;
+package com.utils.angluswang.baseadapter.activity;
 
 import android.app.Activity;
 import android.os.Bundle;
 import android.widget.ListView;
+
+import com.utils.angluswang.baseadapter.adapter.MyAdapter;
+import com.utils.angluswang.baseadapter.R;
+import com.utils.angluswang.baseadapter.entity.Bean;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,6 +15,7 @@ public class MainActivity extends Activity {
 
     private ListView mListView;
     private List<Bean> mDatas;
+    private MyAdapter myAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,6 +24,8 @@ public class MainActivity extends Activity {
 
         initDatas();
         initView();
+
+        mListView.setAdapter(myAdapter);
     }
 
     private void initView() {
@@ -47,5 +54,7 @@ public class MainActivity extends Activity {
         bean = new Bean("Android新技能 Get6", "Android打造万能的ListView和GridView适配器",
                 "2016-06-14", "10086");
         mDatas.add(bean);
+
+        myAdapter = new MyAdapter(this, mDatas);
     }
 }

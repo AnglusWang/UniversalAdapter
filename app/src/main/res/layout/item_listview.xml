@@ -31,7 +31,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/tv_desc"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="16dp"
         android:text="2016-06-14"
         android:textColor="#898989"
         android:textSize="12sp"/>
@@ -43,6 +43,7 @@
         android:layout_below="@id/tv_desc"
         android:layout_marginTop="10dp"
         android:layout_alignParentRight="true"
+        android:gravity="center"
         android:background="#2ED667"
         android:drawableLeft="@android:drawable/stat_sys_phone_call"
         android:drawablePadding="5dp"
