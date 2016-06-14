@@ -1,10 +1,8 @@
 package com.utils.angluswang.baseadapter.adapter;
 
 import android.content.Context;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.utils.angluswang.baseadapter.R;
@@ -18,31 +16,10 @@ import java.util.List;
  * 加强型适配器
  */
 
-public class MyAdapterWithCommonViewHolder extends BaseAdapter{
-
-    private LayoutInflater mInflater;
-    private List<Bean> mDatas;
-    private Context mContext;
+public class MyAdapterWithCommonViewHolder extends CommonAdapter<Bean> {
 
     public MyAdapterWithCommonViewHolder(Context context, List<Bean> datas) {
-        mContext = context;
-        mInflater = LayoutInflater.from(context);
-        mDatas = datas;
-    }
-
-    @Override
-    public int getCount() {
-        return mDatas.size();
-    }
-
-    @Override
-    public Object getItem(int position) {
-        return mDatas.get(position);
-    }
-
-    @Override
-    public long getItemId(int position) {
-        return position;
+        super(context, datas);
     }
 
     @Override

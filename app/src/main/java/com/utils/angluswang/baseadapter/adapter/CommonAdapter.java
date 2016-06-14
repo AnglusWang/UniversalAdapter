@@ -12,14 +12,14 @@ import java.util.List;
 
 /**
  * Created by Jeson on 2016/6/14.
- *  通用的适配器抽象类
+ * 通用的适配器抽象类
  */
 
 public abstract class CommonAdapter<T> extends BaseAdapter {
 
-    private Context mContext;
-    private List<Bean> mDatas;
-    private LayoutInflater mInflater;
+    protected Context mContext;
+    protected List<Bean> mDatas;
+    protected LayoutInflater mInflater;
 
     public CommonAdapter(Context context, List<Bean> datas) {
         this.mContext = context;
