@@ -1,7 +1,6 @@
 package com.utils.angluswang.baseadapter.adapter;
 
 import android.content.Context;
-import android.widget.TextView;
 
 import com.utils.angluswang.baseadapter.R;
 import com.utils.angluswang.baseadapter.entity.Bean;
@@ -23,9 +22,11 @@ public class MyAdapterWithCommonViewHolder extends CommonAdapter<Bean> {
     @Override
     public void convert(ViewHolder holder, Bean bean) {
 
-        ((TextView) holder.getView(R.id.tv_title)).setText(bean.getTitle());
-        ((TextView) holder.getView(R.id.tv_desc)).setText(bean.getDesc());
-        ((TextView) holder.getView(R.id.tv_time)).setText(bean.getTime());
-        ((TextView) holder.getView(R.id.tv_phone)).setText(bean.getPhone());
+//        ((TextView) holder.getView(R.id.tv_title)).setText(bean.getTitle());
+        holder.setText(R.id.tv_title, bean.getTitle())
+                .setText(R.id.tv_desc, bean.getDesc())
+                .setText(R.id.tv_time, bean.getTime())
+                .setText(R.id.tv_phone, bean.getPhone());
+
     }
 }

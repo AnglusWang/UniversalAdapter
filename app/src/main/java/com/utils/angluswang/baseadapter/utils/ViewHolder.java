@@ -5,6 +5,7 @@ import android.util.SparseArray;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 /**
  * Created by Jeson on 2016/6/14.
@@ -36,6 +37,12 @@ public class ViewHolder {
         }
     }
 
+    /**
+     * 通过viewId 获取控件
+     * @param viewId
+     * @param <T>
+     * @return
+     */
     public <T extends View> T getView(int viewId) {
 
         View view = mViews.get(viewId);
@@ -48,5 +55,17 @@ public class ViewHolder {
 
     public View getConvertView() {
         return mConvertView;
+    }
+
+    /**
+     * 为TextView控件设置文本
+     * @param viewId 控件的资源id
+     * @param string 需要设置的文本内容
+     * @return this
+     */
+    public ViewHolder setText(int viewId, String string) {
+        TextView tv = getView(viewId);
+        tv.setText(string);
+        return this;
     }
 }
