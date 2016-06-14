@@ -4,8 +4,9 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.widget.ListView;
 
-import com.utils.angluswang.baseadapter.adapter.MyAdapter;
 import com.utils.angluswang.baseadapter.R;
+import com.utils.angluswang.baseadapter.adapter.MyAdapter;
+import com.utils.angluswang.baseadapter.adapter.MyAdapterWithCommonViewHolder;
 import com.utils.angluswang.baseadapter.entity.Bean;
 
 import java.util.ArrayList;
@@ -16,6 +17,7 @@ public class MainActivity extends Activity {
     private ListView mListView;
     private List<Bean> mDatas;
     private MyAdapter myAdapter;
+    private MyAdapterWithCommonViewHolder mAdapterWithCommonViewHolder;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,7 +27,7 @@ public class MainActivity extends Activity {
         initDatas();
         initView();
 
-        mListView.setAdapter(myAdapter);
+        mListView.setAdapter(mAdapterWithCommonViewHolder);
     }
 
     private void initView() {
@@ -55,6 +57,7 @@ public class MainActivity extends Activity {
                 "2016-06-14", "10086");
         mDatas.add(bean);
 
-        myAdapter = new MyAdapter(this, mDatas);
+//        myAdapter = new MyAdapter(this, mDatas);
+        mAdapterWithCommonViewHolder = new MyAdapterWithCommonViewHolder(this, mDatas);
     }
 }

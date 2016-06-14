@@ -18,7 +18,7 @@ public class ViewHolder {
     private View mConvertView;
 
     public ViewHolder(Context context, ViewGroup parent,
-                     int layouId, int position) {
+                      int layouId, int position) {
         this.mPosition = position;
         this.mViews = new SparseArray<>();
         mConvertView = LayoutInflater.from(context).inflate(layouId, parent, false);
@@ -26,7 +26,7 @@ public class ViewHolder {
     }
 
     public static ViewHolder get(Context context, View convertView,
-                          ViewGroup parent, int layouId, int position) {
+                                 ViewGroup parent, int layouId, int position) {
         if (convertView == null) {
             return new ViewHolder(context, parent, layouId, position);
         } else {
@@ -36,9 +36,9 @@ public class ViewHolder {
         }
     }
 
-    public < T extends View> T getView(int viewId) {
-        View view = mViews.get(viewId);
+    public <T extends View> T getView(int viewId) {
 
+        View view = mViews.get(viewId);
         if (view == null) {
             view = mConvertView.findViewById(viewId);
             mViews.put(viewId, view);
